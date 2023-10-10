@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  TF_CLOUD_ORGANIZATION: "YOUR-ORGANIZATION-HERE"
+  TF_CLOUD_ORGANIZATION: "samuellee-dev"
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
-  TF_WORKSPACE: "learn-terraform-github-actions"
+  TF_WORKSPACE: "tfc-cicd-demo"
   CONFIG_DIRECTORY: "./"
 
 jobs:
