@@ -49,6 +49,7 @@ resource "aws_instance" "web" {
               EOF
   tags = {
     Name = "tf-example"
+    Demo = "f&p"
   }
 }
 
