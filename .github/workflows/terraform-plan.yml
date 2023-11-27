@@ -8,9 +8,6 @@ env:
   TF_API_TOKEN: "${{ secrets.TF_API_TOKEN }}"
   TF_WORKSPACE: "tfc-cicd-demo"
   CONFIG_DIRECTORY: "./"
-  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-  AWS_REGION: "ap-southeast-2"
 
 jobs:
   terraform:
@@ -21,24 +18,6 @@ jobs:
       pull-requests: write
     steps:
       - uses: actions/checkout@v3
-      - uses: hashicorp/setup-terraform@v2
-
-      - name: Terraform Fmt
-        id: fmt
-        run: terraform fmt -check
-        continue-on-error: true
-
-      - name: Terraform Init
-        id: init
-        run: terraform init
-
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
-
-      - name: Terraform Test
-        id: test
-        run: terraform test
 
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
