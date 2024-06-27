@@ -44,7 +44,7 @@ jobs:
       - name: Get TF Plan Output
         id: tf-plan-output
         run: |
-          curl --header "Authorization: Bearer ${{ secrets.TF_API_TOKEN }}" \
+          curl --header "Authorization: Bearer ${{ env.TF_API_TOKEN }}" \
                --header "Content-Type: application/vnd.api+json" \
                --location "https://app.terraform.io/api/v2/plans/${{ steps.plan-output.outputs.plan }}/json-output"
 
