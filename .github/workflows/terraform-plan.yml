@@ -46,7 +46,7 @@ jobs:
         run: |
           curl --header "Authorization: Bearer ${{ env.TF_API_TOKEN }}" \
                --header "Content-Type: application/vnd.api+json" \
-               --location "https://app.terraform.io/api/v2/plans/${{ steps.plan-output.outputs.plan }}/json-output"
+               --location "https://app.terraform.io/api/v2/plans/${{steps.plan-output.outputs.plan_id }}/json-output" | jq
 
       - name: Update PR
         uses: actions/github-script@v6
